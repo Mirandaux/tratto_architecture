@@ -1,0 +1,13 @@
+import { gsap, reduced, scrollTo } from '../shared';
+export const logo = `<span class="logo-word">tratto<span class="logo-dot">.</span></span><span class="logo-hand">architetti</span>`;
+export function header(){
+ const el=document.querySelector('#header');
+ const links=[['#entra','Entra in casa'],['#volume','Dal tratto al volume'],['#metodo','Metodo'],['#progetti','Progetti'],['#contatti','Contatti']];
+ el.innerHTML=`<a href="#hero" class="logo" aria-label="tratto. architetti, inizio">${logo}</a><nav class="desktop-nav" aria-label="Navigazione principale">${links.map(([url,text])=>`<a href="${url}">${text}</a>`).join('')}</nav><a class="header-contact mono" href="#contatti">Parliamone ${'<span aria-hidden="true">↗</span>'}</a><button class="menu-toggle" aria-label="Apri il menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button><nav id="mobile-menu" class="mobile-menu" aria-label="Navigazione mobile" inert><span class="mono">Esplora Tratto</span>${links.map(([url,text],i)=>`<a href="${url}"><span class="mono">0${i+1}</span>${text}</a>`).join('')}<span class="hand">dalla linea alla casa</span></nav>`;
+ const button=el.querySelector('.menu-toggle'),menu=el.querySelector('.mobile-menu');let open=false;
+ function toggle(force){open=force??!open;button.setAttribute('aria-expanded',open);button.setAttribute('aria-label',open?'Chiudi il menu':'Apri il menu');document.body.classList.toggle('menu-open',open);el.classList.toggle('menu-active',open);menu.inert=!open;window.trattoLenis?.[open?'stop':'start']();if(open&&!reduced)gsap.fromTo(menu.querySelectorAll('a'),{y:30,opacity:0},{y:0,opacity:1,stagger:.08,duration:.6});}
+ button.addEventListener('click',()=>toggle());
+ document.addEventListener('keydown',e=>{if(!open)return;if(e.key==='Escape'){toggle(false);button.focus();}if(e.key==='Tab'){const focusable=[button,...menu.querySelectorAll('a')];const first=focusable[0],last=focusable.at(-1);if(e.shiftKey&&document.activeElement===first){e.preventDefault();last.focus();}else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}}});
+ el.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{if(open)toggle(false);}));
+ document.addEventListener('click',e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const target=a.getAttribute('href');if(target.length>1&&document.querySelector(target)){e.preventDefault();if(e.detail===0||a.classList.contains('skip-link')){const section=document.querySelector(target);const heading=section.querySelector('h1,h2')||section;heading.setAttribute('tabindex','-1');heading.focus({preventScroll:true});}scrollTo(target);}});
+}

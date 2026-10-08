@@ -1,0 +1,35 @@
+import { gsap, ScrollTrigger, reduced, picture, label, arrow, scrollTo } from '../shared';
+export function progetti(){
+ const el=document.querySelector('#progetti');
+ const items=[{name:'Blocco Sospeso',type:'Spazio culturale',image:'sbalzo',alt:'Volume di cemento a vista sospeso sopra un portico pubblico',note:'l’ombra è uno spazio pubblico',text:'Un volume di cemento a vista sospeso sopra la piazza. Sotto lo sbalzo, l’ombra diventa un portico pubblico.',tags:'Cemento a vista / Spazio collettivo'}, {name:'Casa Pozzo',type:'Residenza privata',image:'pozzo',alt:'Patio interno in cemento con lucernario e acqua che riflette il cielo',note:'un pezzo di cielo, dentro casa',text:'Un patio a tutta altezza porta il cielo dentro casa. L’acqua sul fondo raddoppia la luce del lucernario.',tags:'Luce zenitale / Acqua'}, {name:'Casa Salvia',type:'Ristrutturazione',image:'salvia',alt:'Casa con intonaco verde salvia, giardino e camminamento in pietra',note:'il tempo è un materiale',text:'Una casa degli anni Quaranta riletta con rispetto: intonaco salvia, giardino secco e un percorso in pietra.',tags:'Recupero / Paesaggio'}];
+ el.innerHTML=`<div class="projects-stage"><div class="projects-top">${label('04','Progetti selezionati')}<div class="gallery-navigation"><span class="mono gallery-count" aria-live="polite">01 / 03</span><button class="gallery-prev" aria-label="Progetto precedente">${arrow('left')}</button><button class="gallery-next" aria-label="Progetto successivo">${arrow('right')}</button></div></div><div class="projects-viewport" tabindex="0" aria-label="Galleria progetti. Usa le frecce per navigare"><div class="projects-track"><article class="project-intro"><span class="mono">Architetture da abitare / 2021–2025</span><h2 id="projects-title">Tre case,<br>tre modi<br>di abitare<br>la <span class="accent-text">luce.</span></h2><span class="hand">Ogni luogo ha<br>una storia da disegnare.</span><div class="gallery-direction mono">Scorri per esplorare ${arrow('right')}</div></article>${items.map((x,i)=>`<article class="project-card" data-index="${i}"><div class="project-image" data-cursor="Guarda">${picture(x.image,x.alt,{sizes:'(max-width: 760px) 85vw, 55vw'})}<div class="project-light-thread" aria-hidden="true"></div><span class="project-note hand">${x.note}</span><span class="project-image-number mono">0${i+1} / 03</span></div><div class="project-info"><div class="project-head"><h3>${x.name}</h3><span class="mono">${x.type}</span></div><p>${x.text}</p><span class="project-tags mono">${x.tags}</span></div></article>`).join('')}<article class="project-outro"><span class="mono">Il progetto 04</span><svg class="outro-house" viewBox="0 0 140 140" fill="none" stroke="currentColor" stroke-width="1" aria-hidden="true"><path d="M12 120h116M30 120V54L70 23l40 31v66M18 63l52-40 52 40M57 120V84h26v36M22 18l97 114M17 113 123 14"/></svg><h3 class="display">Il prossimo<br>progetto<br>è il <span class="accent-text">tuo.</span></h3><a class="pill primary" href="#contatti">Cominciamo da una linea ${arrow()}</a><span class="hand">Qui c’è spazio per la tua idea.</span></article></div></div><div class="gallery-bottom mono"><span>Spazi diversi. La stessa attenzione.</span><div class="gallery-progress"><i></i></div><span>Tratto / Archivio aperto</span></div></div>`;
+ const stage=el.querySelector('.projects-stage'),viewport=el.querySelector('.projects-viewport'),track=el.querySelector('.projects-track'),cards=[...el.querySelectorAll('.project-card')],count=el.querySelector('.gallery-count');let current=-1;let anim;
+ function active(i){i=Math.max(-1,Math.min(2,i));if(current!==i){current=i;count.textContent=`0${Math.max(0,i)+1} / 03`;}cards.forEach((c,j)=>c.classList.toggle('is-active',j===i));}
+ function go(i){i=Math.max(0,Math.min(2,i));if(anim){const r=cards[i].offsetLeft+cards[i].offsetWidth/2-viewport.clientWidth/2;const st=anim.scrollTrigger;scrollTo(st.start+(st.end-st.start)*r/(track.scrollWidth-viewport.clientWidth),{offset:0,duration:1});}else viewport.scrollTo({left:cards[i].offsetLeft-(viewport.clientWidth-cards[i].offsetWidth)/2,behavior:reduced?'instant':'smooth'});}
+ el.querySelector('.gallery-prev').addEventListener('click',()=>go(current-1));el.querySelector('.gallery-next').addEventListener('click',()=>go(current+1));
+ viewport.addEventListener('keydown',e=>{if(e.target!==viewport)return;if(e.key==='ArrowRight'){e.preventDefault();go(current+1);}if(e.key==='ArrowLeft'){e.preventDefault();go(current-1);}});
+ el.querySelector('.project-outro a').addEventListener('focus',()=>{if(anim){const st=anim.scrollTrigger;scrollTo(st.end,{offset:0,immediate:true});st.getTween()?.progress(1);viewport.scrollLeft=0;active(2);}});
+ // Porta al centro anche gli elementi raggiunti con la tastiera.
+ cards.forEach((c,i)=>c.addEventListener('focusin',()=>go(i)));
+ const mm=gsap.matchMedia();mm.add({desktop:'(min-width: 761px)',mobile:'(max-width: 760px)',motionReduced:'(prefers-reduced-motion: reduce)'},context=>{
+ el.classList.remove('swipe-gallery');viewport.scrollLeft=0;
+ if(!context.conditions.desktop||context.conditions.motionReduced){
+  el.classList.add('swipe-gallery');
+  const onScroll=()=>{
+   const center=viewport.scrollLeft+viewport.clientWidth/2;
+   if(center<cards[0].offsetLeft+cards[0].offsetWidth*.3)active(-1);
+   else{let closest=0,delta=Infinity;cards.forEach((card,i)=>{const d=Math.abs(card.offsetLeft+card.offsetWidth/2-center);if(d<delta){delta=d;closest=i;}});active(closest);}
+   el.querySelector('.gallery-progress i').style.transform=`scaleX(${viewport.scrollLeft/(track.scrollWidth-viewport.clientWidth)||0})`;
+  };
+  viewport.addEventListener('scroll',onScroll);onScroll();
+  return()=>viewport.removeEventListener('scroll',onScroll);
+ }
+ function distance(){return track.scrollWidth-viewport.clientWidth;}
+ anim=gsap.to(track,{x:()=>-distance(),ease:'none',scrollTrigger:{trigger:el,start:'top top',end:()=>`+=${distance()*1.25}`,pin:stage,scrub:1,anticipatePin:1,invalidateOnRefresh:true,onUpdate:self=>{const center=-gsap.getProperty(track,'x')+viewport.clientWidth/2;if(center<cards[0].offsetLeft+cards[0].offsetWidth*.3){active(-1);return;}let closest=0,delta=Infinity;cards.forEach((card,i)=>{const d=Math.abs(card.offsetLeft+card.offsetWidth/2-center);if(d<delta){delta=d;closest=i;}});active(closest);el.querySelector('.gallery-progress i').style.transform=`scaleX(${self.progress})`;}}});
+ cards.forEach(card=>{
+  const tl=gsap.timeline({scrollTrigger:{trigger:card,containerAnimation:anim,start:'left 90%',end:'center center',scrub:true}});
+  tl.from(card.querySelector('picture'),{clipPath:'inset(100% 0 0 0)',y:50,duration:1},0).from(card.querySelector('img'),{scale:1.15,duration:1},0).fromTo(card.querySelector('.project-light-thread'),{y:()=>card.querySelector('.project-image').clientHeight,opacity:1},{y:0,opacity:0,duration:1},0).to(card.querySelector('.project-note'),{opacity:0,y:-20,duration:.5},.5).from(card.querySelector('.project-info'),{y:15,duration:1},0);
+ });
+ return()=>{anim=null;};
+ });
+}

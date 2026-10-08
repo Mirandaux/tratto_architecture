@@ -1,0 +1,6 @@
+pillow==12.3.0
+opencv-python-headless==5.0.0.93
+numpy==2.5.3
+pillow-avif-plugin==1.6.0
+fonttools==4.66.1
+brotli==1.2.0

@@ -1,0 +1,305 @@
+[
+  {
+    "browser": "chromium",
+    "scenario": "desktop",
+    "checks": [
+      "Hero e accessibilità iniziale",
+      "Salto al contenuto da tastiera",
+      "Navigazione ai capitoli del percorso",
+      "Tre preset, frecce e trascinamento del comparatore",
+      "Navigazione e contatore della galleria",
+      "Validazione del modulo e invio locale non configurato",
+      "Nessun errore JavaScript, nessun overflow, pin coerenti",
+      "Cambio di breakpoint senza ricaricare la pagina"
+    ],
+    "pins": 2,
+    "errors": [],
+    "accessibility": [
+      {
+        "section": "hero",
+        "violations": []
+      },
+      {
+        "section": "comparatore",
+        "violations": []
+      },
+      {
+        "section": "progetti",
+        "violations": []
+      },
+      {
+        "section": "contatti",
+        "violations": []
+      }
+    ]
+  },
+  {
+    "browser": "chromium",
+    "scenario": "mobile",
+    "checks": [
+      "Hero e accessibilità iniziale",
+      "Salto al contenuto da tastiera",
+      "Menu mobile e tasto Escape",
+      "Navigazione ai capitoli del percorso",
+      "Tre preset, frecce e trascinamento del comparatore",
+      "Navigazione e contatore della galleria",
+      "Validazione del modulo e invio locale non configurato",
+      "Nessun errore JavaScript, nessun overflow, pin coerenti"
+    ],
+    "pins": 1,
+    "errors": [],
+    "accessibility": [
+      {
+        "section": "hero",
+        "violations": []
+      },
+      {
+        "section": "comparatore",
+        "violations": []
+      },
+      {
+        "section": "progetti",
+        "violations": []
+      },
+      {
+        "section": "contatti",
+        "violations": []
+      }
+    ]
+  },
+  {
+    "browser": "chromium",
+    "scenario": "reduced",
+    "checks": [
+      "Hero e accessibilità iniziale",
+      "Salto al contenuto da tastiera",
+      "Navigazione ai capitoli del percorso",
+      "Tre preset, frecce e trascinamento del comparatore",
+      "Navigazione e contatore della galleria",
+      "Validazione del modulo e invio locale non configurato",
+      "Nessun errore JavaScript, nessun overflow, pin coerenti"
+    ],
+    "pins": 0,
+    "errors": [],
+    "accessibility": [
+      {
+        "section": "hero",
+        "violations": []
+      },
+      {
+        "section": "comparatore",
+        "violations": []
+      },
+      {
+        "section": "progetti",
+        "violations": []
+      },
+      {
+        "section": "contatti",
+        "violations": []
+      }
+    ]
+  },
+  {
+    "browser": "firefox",
+    "scenario": "desktop",
+    "checks": [
+      "Hero e accessibilità iniziale",
+      "Salto al contenuto da tastiera",
+      "Navigazione ai capitoli del percorso",
+      "Tre preset, frecce e trascinamento del comparatore",
+      "Navigazione e contatore della galleria",
+      "Validazione del modulo e invio locale non configurato",
+      "Nessun errore JavaScript, nessun overflow, pin coerenti",
+      "Cambio di breakpoint senza ricaricare la pagina"
+    ],
+    "pins": 2,
+    "errors": [],
+    "accessibility": [
+      {
+        "section": "hero",
+        "violations": []
+      },
+      {
+        "section": "comparatore",
+        "violations": []
+      },
+      {
+        "section": "progetti",
+        "violations": []
+      },
+      {
+        "section": "contatti",
+        "violations": []
+      }
+    ]
+  },
+  {
+    "browser": "firefox",
+    "scenario": "mobile",
+    "checks": [
+      "Hero e accessibilità iniziale",
+      "Salto al contenuto da tastiera",
+      "Menu mobile e tasto Escape",
+      "Navigazione ai capitoli del percorso",
+      "Tre preset, frecce e trascinamento del comparatore",
+      "Navigazione e contatore della galleria",
+      "Validazione del modulo e invio locale non configurato",
+      "Nessun errore JavaScript, nessun overflow, pin coerenti"
+    ],
+    "pins": 1,
+    "errors": [],
+    "accessibility": [
+      {
+        "section": "hero",
+        "violations": []
+      },
+      {
+        "section": "comparatore",
+        "violations": []
+      },
+      {
+        "section": "progetti",
+        "violations": []
+      },
+      {
+        "section": "contatti",
+        "violations": []
+      }
+    ]
+  },
+  {
+    "browser": "firefox",
+    "scenario": "reduced",
+    "checks": [
+      "Hero e accessibilità iniziale",
+      "Salto al contenuto da tastiera",
+      "Navigazione ai capitoli del percorso",
+      "Tre preset, frecce e trascinamento del comparatore",
+      "Navigazione e contatore della galleria",
+      "Validazione del modulo e invio locale non configurato",
+      "Nessun errore JavaScript, nessun overflow, pin coerenti"
+    ],
+    "pins": 0,
+    "errors": [],
+    "accessibility": [
+      {
+        "section": "hero",
+        "violations": []
+      },
+      {
+        "section": "comparatore",
+        "violations": []
+      },
+      {
+        "section": "progetti",
+        "violations": []
+      },
+      {
+        "section": "contatti",
+        "violations": []
+      }
+    ]
+  },
+  {
+    "browser": "webkit",
+    "scenario": "desktop",
+    "checks": [
+      "Hero e accessibilità iniziale",
+      "Salto al contenuto da tastiera",
+      "Navigazione ai capitoli del percorso",
+      "Tre preset, frecce e trascinamento del comparatore",
+      "Navigazione e contatore della galleria",
+      "Validazione del modulo e invio locale non configurato",
+      "Nessun errore JavaScript, nessun overflow, pin coerenti",
+      "Cambio di breakpoint senza ricaricare la pagina"
+    ],
+    "pins": 2,
+    "errors": [],
+    "accessibility": [
+      {
+        "section": "hero",
+        "violations": []
+      },
+      {
+        "section": "comparatore",
+        "violations": []
+      },
+      {
+        "section": "progetti",
+        "violations": []
+      },
+      {
+        "section": "contatti",
+        "violations": []
+      }
+    ]
+  },
+  {
+    "browser": "webkit",
+    "scenario": "mobile",
+    "checks": [
+      "Hero e accessibilità iniziale",
+      "Salto al contenuto da tastiera",
+      "Menu mobile e tasto Escape",
+      "Navigazione ai capitoli del percorso",
+      "Tre preset, frecce e trascinamento del comparatore",
+      "Navigazione e contatore della galleria",
+      "Validazione del modulo e invio locale non configurato",
+      "Nessun errore JavaScript, nessun overflow, pin coerenti"
+    ],
+    "pins": 1,
+    "errors": [],
+    "accessibility": [
+      {
+        "section": "hero",
+        "violations": []
+      },
+      {
+        "section": "comparatore",
+        "violations": []
+      },
+      {
+        "section": "progetti",
+        "violations": []
+      },
+      {
+        "section": "contatti",
+        "violations": []
+      }
+    ]
+  },
+  {
+    "browser": "webkit",
+    "scenario": "reduced",
+    "checks": [
+      "Hero e accessibilità iniziale",
+      "Salto al contenuto da tastiera",
+      "Navigazione ai capitoli del percorso",
+      "Tre preset, frecce e trascinamento del comparatore",
+      "Navigazione e contatore della galleria",
+      "Validazione del modulo e invio locale non configurato",
+      "Nessun errore JavaScript, nessun overflow, pin coerenti"
+    ],
+    "pins": 0,
+    "errors": [],
+    "accessibility": [
+      {
+        "section": "hero",
+        "violations": []
+      },
+      {
+        "section": "comparatore",
+        "violations": []
+      },
+      {
+        "section": "progetti",
+        "violations": []
+      },
+      {
+        "section": "contatti",
+        "violations": []
+      }
+    ]
+  }
+]

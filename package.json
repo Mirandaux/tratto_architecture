@@ -1,0 +1,7 @@
+{
+  "name": "tratto-architetti", "version": "1.0.0", "private": true, "type": "module",
+  "scripts": {"dev": "vite --host 0.0.0.0", "build": "vite build", "preview": "vite preview --host 0.0.0.0", "prepare:images": "python scripts/prepara-immagini.py"},
+  "dependencies": {"gsap": "^3.14.2", "lenis": "^1.3.17"},
+  "devDependencies": {"vite": "^7.3.1"},
+  "engines": {"node": ">=20.19.0"}
+}

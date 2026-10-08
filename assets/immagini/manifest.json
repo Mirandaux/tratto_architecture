@@ -1,0 +1,49 @@
+{
+  "villa": {
+    "width": 1800,
+    "height": 1201,
+    "longSide": 1800,
+    "widths": [
+      800,
+      1400,
+      1800
+    ]
+  },
+  "fronte": {
+    "width": 1800,
+    "height": 1200,
+    "longSide": 1800,
+    "widths": [
+      800,
+      1400,
+      1800
+    ]
+  },
+  "sbalzo": {
+    "width": 1400,
+    "height": 1031,
+    "longSide": 1400,
+    "widths": [
+      800,
+      1400
+    ]
+  },
+  "pozzo": {
+    "width": 788,
+    "height": 1400,
+    "longSide": 1400,
+    "widths": [
+      450,
+      788
+    ]
+  },
+  "salvia": {
+    "width": 933,
+    "height": 1400,
+    "longSide": 1400,
+    "widths": [
+      533,
+      933
+    ]
+  }
+}

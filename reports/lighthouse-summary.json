@@ -1,0 +1,82 @@
+{
+  "mobile": {
+    "lighthouseVersion": "13.5.0",
+    "fetchTime": "2026-10-08T08:35:19.270Z",
+    "categories": {
+      "performance": 96,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": {
+        "value": 2443.6701000000003,
+        "display": "2.4\u00a0s"
+      },
+      "first-contentful-paint": {
+        "value": 1548.1701,
+        "display": "1.5\u00a0s"
+      },
+      "total-blocking-time": {
+        "value": 120.5,
+        "display": "120\u00a0ms"
+      },
+      "speed-index": {
+        "value": 1642.4369476741147,
+        "display": "1.6\u00a0s"
+      },
+      "cumulative-layout-shift": {
+        "value": 0.002449149529873873,
+        "display": "0.002"
+      }
+    },
+    "throttling": {
+      "rttMs": 150,
+      "throughputKbps": 1638.4,
+      "requestLatencyMs": 562.5,
+      "downloadThroughputKbps": 1474.5600000000002,
+      "uploadThroughputKbps": 675,
+      "cpuSlowdownMultiplier": 4
+    }
+  },
+  "desktop": {
+    "lighthouseVersion": "13.5.0",
+    "fetchTime": "2026-10-08T08:35:31.228Z",
+    "categories": {
+      "performance": 92,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100
+    },
+    "metrics": {
+      "largest-contentful-paint": {
+        "value": 842.2864000000001,
+        "display": "0.8\u00a0s"
+      },
+      "first-contentful-paint": {
+        "value": 616.8576,
+        "display": "0.6\u00a0s"
+      },
+      "total-blocking-time": {
+        "value": 148.42879999999997,
+        "display": "150\u00a0ms"
+      },
+      "speed-index": {
+        "value": 1984.6324275196566,
+        "display": "2.0\u00a0s"
+      },
+      "cumulative-layout-shift": {
+        "value": 0.002216670755682201,
+        "display": "0.002"
+      }
+    },
+    "throttling": {
+      "rttMs": 40,
+      "throughputKbps": 10240,
+      "requestLatencyMs": 0,
+      "downloadThroughputKbps": 0,
+      "uploadThroughputKbps": 0,
+      "cpuSlowdownMultiplier": 1
+    }
+  }
+}
