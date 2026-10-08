@@ -20,5 +20,5 @@ export function reveal(elements, trigger, options={}) {
 export function scrollTo(target, options={}) {
   if(window.trattoLenis) window.trattoLenis.scrollTo(target, {offset:-80,...options});
   else if(typeof target==='number') window.scrollTo({top:target,behavior:reduced?'instant':'smooth'});
-  else document.querySelector(target)?.scrollIntoView({behavior:reduced?'instant':'smooth'});
+  else (typeof target==='string'?document.querySelector(target):target)?.scrollIntoView({behavior:reduced?'instant':'smooth'});
 }

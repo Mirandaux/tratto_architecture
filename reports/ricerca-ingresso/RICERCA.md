@@ -42,7 +42,7 @@ In produzione questa apertura va integrata nel primo capitolo di «Entra in casa
 - [Prototipo HTML](./proposta.html), servito da Vite all'indirizzo `/reports/ricerca-ingresso/proposta.html`.
 - [Anteprima desktop](./desktop.jpg), [mobile 360 px](./mobile.jpg), [movimento ridotto](./ridotto.jpg).
 - Verificato in Chromium: desktop 1440 px, mobile 360 px e movimento ridotto; nessun errore JavaScript né overflow orizzontale. Apertura e chiusura menu, Escape e pulsante di avanzamento funzionano. Il pin è assente con movimento ridotto.
-- Il prototipo non sostituisce l'header della pagina principale. È incluso nella build di Vite come pagina separata al percorso `/proposta/`, pubblicabile anche su Vercel. La pagina è esclusa dall'indicizzazione. Le prove Firefox, WebKit, Lighthouse e un audit completo di accessibilità saranno da ripetere dopo l'integrazione nel sito.
+- La direzione è ora integrata nella homepage insieme a tutte le sezioni. Il primo scroll riutilizza il pin del percorso in casa. Il vecchio percorso `/proposta/` mostra anch’esso il sito completo ed è escluso dall’indicizzazione. I file `proposta.html`, `proposta.css` e `proposta.js` in questa cartella conservano lo studio originale come riferimento storico. Le prove Firefox, WebKit e Lighthouse del sito precedente non certificano questa integrazione.
 
 ## Ambiente di ricerca
 

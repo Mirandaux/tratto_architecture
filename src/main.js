@@ -1,6 +1,7 @@
 import './styles/tokens.css';
 import './styles/base.css';
 import './styles/sections.css';
+import './styles/opening.css';
 import Lenis from 'lenis';
 import { gsap, ScrollTrigger, reduced } from './shared';
 import { intro } from './sections/intro';
@@ -18,7 +19,7 @@ if(!reduced){
  const lenis=new Lenis({duration:1.1,smoothWheel:true});window.trattoLenis=lenis;
  lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(time=>lenis.raf(time*1000));gsap.ticker.lagSmoothing(0);
 }
-header();const animateHero=hero();entraInCasa();nastri();comparatore();metodo();progetti();manifesto();contatti();footer();intro().then(animateHero);
+header();entraInCasa();const animateHero=hero();nastri();comparatore();metodo();progetti();manifesto();contatti();footer();intro().then(animateHero);
 if(!reduced&&matchMedia('(pointer:fine)').matches){
  gsap.set('.custom-cursor',{xPercent:-50,yPercent:-50});
  const cursor=document.querySelector('.custom-cursor'),text=cursor.querySelector('span');let x=0,y=0,cx=0,cy=0,hasMoved=false;

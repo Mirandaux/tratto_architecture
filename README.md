@@ -16,7 +16,7 @@ npm run build
 npm run preview -- --port 5174
 ```
 
-La build statica è in `dist/`. L'hero è presente anche nell'HTML iniziale per anticipare caricamento e indicizzazione; `src/sections/hero.js` aggiunge la coreografia. Quando si cambia il testo dell'hero, aggiornare anche il corrispondente markup di `index.html`. Gli stili modulari vengono incorporati nell'HTML della build per ridurre il blocco della prima visualizzazione.
+La build statica è in `dist/`. L'hero è presente anche nell'HTML iniziale per anticipare caricamento e indicizzazione; `src/sections/hero.js` introduce il titolo, mentre `src/sections/entra-in-casa.js` gestisce la coreografia condivisa tra apertura e percorso. Quando si cambia il testo dell'hero, aggiornare anche il corrispondente markup di `index.html`. Gli stili modulari vengono incorporati nell'HTML della build per ridurre il blocco della prima visualizzazione.
 
 ## Foto e schizzi
 
@@ -46,7 +46,7 @@ Prima della pubblicazione definitiva sostituire [CITTÀ], [INDIRIZZO STUDIO], [E
 
 ## Movimento e controlli
 
-Le animazioni di scroll usano ScrollTrigger; Lenis è sincronizzato con il ticker GSAP. Con movimento ridotto: niente intro, niente Lenis, pin o scrub; hero sulla luce e immagini statiche. I capitoli restano selezionabili e la galleria è navigabile orizzontalmente. Su mobile il percorso ha un pin di circa tre schermate; la galleria usa swipe e scroll snap. I loop principali vengono sospesi fuori dallo schermo.
+Le animazioni di scroll usano ScrollTrigger; Lenis è sincronizzato con il ticker GSAP. Con movimento ridotto: niente intro, niente Lenis, pin o scrub; apertura fotografica statica e patio finale, senza trasformazioni. I capitoli restano selezionabili e la galleria è navigabile orizzontalmente. Su mobile il percorso ha un pin di circa tre schermate; la galleria usa swipe e scroll snap. I loop principali vengono sospesi fuori dallo schermo.
 
 Il comparatore usa un range nativo collegato al trascinamento, tre preset e le frecce da tastiera. Il menu mobile gestisce focus, Escape e blocco dello scroll. I controlli hanno focus visibile. Per conservare il contrasto AA, le parole iniziali del manifesto usano un grigio più chiaro del #4A4640 proposto. Sfocatura e saturazione usano livelli con filtri statici e dissolvenze; lo sguardo nel patio si sposta tramite trasformazioni dell'immagine.
 
@@ -67,3 +67,5 @@ Avviare prima la preview di produzione sulla porta 5174. I test scrivono in `.te
 La prova di invio simulata usa `scripts/verifica-invio.mjs`: creare una build separata con `NETLIFY=true npm run build -- --outDir .test-results/netlify-dist`, avviarla sulla porta 5175 con `npm run preview -- --port 5175 --outDir .test-results/netlify-dist` e lanciare lo script. Verifica payload, errore 500 e successo 200; non invia messaggi reali.
 
 `node scripts/verifica-focus-galleria.mjs` verifica nei tre motori la CTA finale da tastiera e la sincronizzazione del contatore quando la galleria è bloccata.
+
+La direzione «La soglia» è integrata nella homepage con tutte le sezioni. Il percorso `/proposta/` mostra lo stesso sito completo, con `noindex` per evitare duplicati. Il primo scroll non aggiunge un pin: usa quello del percorso in casa.

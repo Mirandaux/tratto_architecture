@@ -26,7 +26,7 @@ try{
   const screenshot=async section=>page.screenshot({path:resolve(out,`${type.name()}-${name}-${section}.png`)});
   const checks=[];const a11y=[];
   async function accessibility(section){const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();a11y.push({section,violations:result.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>({html:n.html,summary:n.failureSummary}))}))});}
-  assert.equal((await page.locator('h1').textContent()).trim(),'Ogni casa comincia da una linea.');
+  assert.equal((await page.locator('h1').innerText()).trim(),'Prima\nuna linea.');
   await screenshot('hero');await accessibility('hero');checks.push('Hero e accessibilità iniziale');
   await page.keyboard.press('Tab');assert(await page.locator('.skip-link').evaluate(el=>el===document.activeElement));await page.keyboard.press('Enter');assert(await page.locator('h1').evaluate(el=>el===document.activeElement));checks.push('Salto al contenuto da tastiera');
   if(name==='mobile'){
@@ -34,7 +34,7 @@ try{
    assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'true');
    await page.keyboard.press('Escape');assert.equal(await page.locator('.menu-toggle').getAttribute('aria-expanded'),'false');checks.push('Menu mobile e tasto Escape');
   }
-  await navigate('#entra');await page.locator('[data-chapter="3"]').click();await page.waitForTimeout(1600);
+  await page.locator('.scroll-invite').click();await page.waitForTimeout(2400);await page.locator('[data-chapter="3"]').click();await page.waitForTimeout(1600);
   assert.equal(await page.locator('[data-chapter="3"]').getAttribute('aria-current'),'step');await screenshot('journey');checks.push('Navigazione ai capitoli del percorso');
   await navigate('#volume');await page.locator('[data-value="0"]').click();assert.equal(await page.locator('#comparison').inputValue(),'0');
   await page.locator('[data-value="100"]').click();assert.equal(await page.locator('#comparison').inputValue(),'100');
