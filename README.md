@@ -73,3 +73,7 @@ La direzione «La soglia» è integrata nella homepage con tutte le sezioni. Il 
 ## Identità SDR3
 
 Le quattro lettere materiche scendono in sequenza, rivelano le competenze e lasciano spazio al percorso in casa. La sezione `competenze.js` presenta architettura e design d’interni con tavole SVG disegnate allo scroll. Il logotipo tipografico è una proposta grafica, non una riproduzione di un logo ufficiale verificato. I riferimenti Unsplash non sono presentati come lavori dello studio.
+
+## Revisione atelier
+
+L’apertura SDR3 usa un render originale di quattro sculture tipografiche, animato in quattro porzioni indipendenti. Le superfici non sono ritagli delle foto di progetto. Sprite WebP desktop e mobile in `assets/materiali/`; stili in `src/styles/atelier.css`. La scena neutra lascia spazio alla fotografia solo dopo il primo scroll. La revisione e le anteprime sono in `reports/atelier/`.

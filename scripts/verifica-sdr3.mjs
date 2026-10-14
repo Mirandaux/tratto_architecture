@@ -11,7 +11,7 @@ const url=process.env.TEST_URL||'http://localhost:5174/';
 const b=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/chromium',args:['--no-sandbox']});
 for(const [width,reducedMotion] of [[1440,'no-preference'],[360,'no-preference'],[1440,'reduce']]){
  const context=await b.newContext({viewport:{width,height:950},reducedMotion});const p=await context.newPage();await p.addInitScript(()=>sessionStorage.setItem('tratto-visita','1'));await p.goto(url);await p.waitForTimeout(2900);
- assert.equal(await p.locator('.material-letter').count(),4);assert(await p.locator('.material-letter').evaluateAll(xs=>xs.every(x=>!x.style.willChange)));
+ assert.equal(await p.locator('.material-letter').count(),4);assert(await p.locator('.material-letter').first().evaluate(async el=>{const source=getComputedStyle(el).backgroundImage.match(/url\(["']?(.*?)["']?\)/)?.[1];if(!source)return false;const image=new Image();image.src=source;await image.decode();return image.naturalWidth>0;}));assert(await p.locator('.material-letter').evaluateAll(xs=>xs.every(x=>!x.style.willChange)));
  await p.locator('.sdr3-skills-link').click();await p.waitForTimeout(1900);assert(await p.locator('#expertise-title').isVisible());
  if(!reducedMotion||reducedMotion==='no-preference')await p.evaluate(()=>window.trattoLenis.scrollTo(document.querySelector('#competenze'),{immediate:true,offset:0}));
  await p.waitForTimeout(1000);const axe=await new AxeBuilder({page:p}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();assert.deepEqual(axe.violations.map(x=>({id:x.id,nodes:x.nodes.map(n=>n.target)})),[]);

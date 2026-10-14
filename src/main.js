@@ -3,6 +3,7 @@ import './styles/base.css';
 import './styles/sections.css';
 import './styles/opening.css';
 import './styles/sdr3.css';
+import './styles/atelier.css';
 import Lenis from 'lenis';
 import { gsap, ScrollTrigger, reduced } from './shared';
 import { intro } from './sections/intro';
