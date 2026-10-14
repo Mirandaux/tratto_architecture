@@ -1,6 +1,6 @@
-# Tratto Architetti
+# Studio SDR3
 
-Sito vetrina in italiano per uno studio fittizio. Vite e JavaScript vanilla, GSAP con ScrollTrigger e Lenis. Nessun framework UI. I font Archivo, Caveat e IBM Plex Mono sono distribuiti localmente con le licenze OFL.
+Sito vetrina in italiano per STUDIO SDR3 SRL STP, architettura e design d’interni a San Giovanni Lupatoto (VR). Vite e JavaScript vanilla, GSAP con ScrollTrigger e Lenis. Nessun framework UI. I font Archivo, Caveat e IBM Plex Mono sono distribuiti localmente con le licenze OFL.
 
 ## Sviluppo
 
@@ -69,3 +69,7 @@ La prova di invio simulata usa `scripts/verifica-invio.mjs`: creare una build se
 `node scripts/verifica-focus-galleria.mjs` verifica nei tre motori la CTA finale da tastiera e la sincronizzazione del contatore quando la galleria è bloccata.
 
 La direzione «La soglia» è integrata nella homepage con tutte le sezioni. Il percorso `/proposta/` mostra lo stesso sito completo, con `noindex` per evitare duplicati. Il primo scroll non aggiunge un pin: usa quello del percorso in casa.
+
+## Identità SDR3
+
+Le quattro lettere materiche scendono in sequenza, rivelano le competenze e lasciano spazio al percorso in casa. La sezione `competenze.js` presenta architettura e design d’interni con tavole SVG disegnate allo scroll. Il logotipo tipografico è una proposta grafica, non una riproduzione di un logo ufficiale verificato. I riferimenti Unsplash non sono presentati come lavori dello studio.
