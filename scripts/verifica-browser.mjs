@@ -21,12 +21,12 @@ try{
   const context=await browser.newContext({viewport:{width,height:950},reducedMotion:motionReduced?'reduce':'no-preference'});
   const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.addInitScript(()=>sessionStorage.setItem('tratto-visita','1'));
-  await page.goto(process.env.TEST_URL||'http://localhost:5174');await page.waitForTimeout(3000);
+  await page.goto(process.env.TEST_URL||'http://localhost:5174');await page.waitForTimeout(1600);
   const navigate=async selector=>{await page.evaluate(s=>window.trattoLenis?window.trattoLenis.scrollTo(document.querySelector(s),{immediate:true}):document.querySelector(s).scrollIntoView(),selector);await page.waitForTimeout(1000);};
   const screenshot=async section=>page.screenshot({path:resolve(out,`${type.name()}-${name}-${section}.png`)});
   const checks=[];const a11y=[];
   async function accessibility(section){const result=await new AxeBuilder({page}).withTags(['wcag2a','wcag2aa','wcag21aa']).analyze();a11y.push({section,violations:result.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>({html:n.html,summary:n.failureSummary}))}))});}
-  assert.equal((await page.locator('h1').textContent()).trim(),'SDR3. Architettura e design d’interni.');
+  assert.equal((await page.locator('h1').innerText()).trim(),'Prima\nuna linea.');
   await screenshot('hero');await accessibility('hero');checks.push('Hero e accessibilità iniziale');
   await page.keyboard.press('Tab');assert(await page.locator('.skip-link').evaluate(el=>el===document.activeElement));await page.keyboard.press('Enter');assert(await page.locator('h1').evaluate(el=>el===document.activeElement));checks.push('Salto al contenuto da tastiera');
   if(name==='mobile'){
